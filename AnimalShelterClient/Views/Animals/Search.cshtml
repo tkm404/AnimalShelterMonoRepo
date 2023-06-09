@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h3>Search for Animals: </h3>
+
+@using (Html.BeginForm())
+{
+
+<label for="category">Choose a parameter:</label>
+<select name="category", id="category">
+  <option value="name">Name</option>
+  <option value="species">Species</option>
+  <option value="breed">Breed</option>
+</select>
+
+<label>Enter search text:</label>
+<input type="text" name="searchParam">
+<input type="submit" value="Search" class="btn btn-primary"/>
+}

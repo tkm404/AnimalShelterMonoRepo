@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using AnimalShelterClient.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AnimalShelterClient.Controllers;
 
@@ -9,6 +10,19 @@ public class AnimalsController : Controller
   {
     List<Animal> animals = Animal.GetAnimals();
     return View(animals);
+  }
+
+  public IActionResult Search()
+  {
+    return View();
+  } 
+
+  [HttpPost]
+  public IActionResult Search(string category, string searchParam)
+  {
+    List<Animal> animals = Animal.GetSearch(category, searchParam);
+    return View(animals);
+
   }
 
   public IActionResult Details(int id)
