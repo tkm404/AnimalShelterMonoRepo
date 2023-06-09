@@ -2,6 +2,7 @@
 using AnimalShelterApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AnimalShelterApi.Migrations
 {
     [DbContext(typeof(AnimalShelterApiContext))]
-    partial class AnimalShelterApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230609154736_AddSeedData")]
+    partial class AddSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace AnimalShelterApi.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Species")
+                    b.Property<string>("Sepcies")
                         .HasColumnType("longtext");
 
                     b.HasKey("AnimalId");
@@ -47,7 +49,7 @@ namespace AnimalShelterApi.Migrations
                             Age = 4,
                             Breed = "Golden Retriever",
                             Name = "Laika",
-                            Species = "Dog"
+                            Sepcies = "Dog"
                         });
                 });
 #pragma warning restore 612, 618

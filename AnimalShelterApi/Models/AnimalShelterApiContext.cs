@@ -14,7 +14,7 @@ namespace AnimalShelterApi.Models
     {
       builder.Entity<Animal>()
       .HasData(
-        new Animal { AnimalId = 1, Name = "Laika", Sepcies = "Dog", Breed = "Golden Retriever", Age = 4 }
+        new Animal { AnimalId = 1, Name = "Laika", Species = "Dog", Breed = "Golden Retriever", Age = 4 }
       );
     }
   }
