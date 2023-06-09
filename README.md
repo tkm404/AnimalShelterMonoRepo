@@ -43,6 +43,8 @@ This is a web application built with VS Code for the 11th Independent Code Revie
 
 
 ### Endpoints:
+
+```
 {
   GET http://localhost:8492/api/animals/
     To return animals by species, breed, name, or age n or older:
@@ -74,6 +76,7 @@ This is a web application built with VS Code for the 11th Independent Code Revie
 
   DELETE http://localhost:8492/api/animals/{id}
 }
+```
 
 ## Known Bugs:
 
