@@ -1,0 +1,14 @@
+@{
+    ViewData["Title"] = "Animals";
+}
+
+<h1> All Shelter Animals: </h1>
+
+<ol>
+  @foreach (Animal animal in Model)
+  {
+    <li><strong>@animal.Name</strong> the @animal.Species | <a href="/Animals/Details/@(animal.AnimalId)">View Details</a></li>
+  }
+</ol>
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>
