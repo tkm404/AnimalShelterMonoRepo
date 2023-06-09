@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using AnimalShelterClient.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PagedList;
 
 namespace AnimalShelterClient.Controllers;
 
