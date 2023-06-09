@@ -14,7 +14,8 @@ public class AnimalsController : Controller
 
   public IActionResult Search()
   {
-    return View();
+    List<Animal> animals = Animal.GetAnimals();
+    return View(animals);
   } 
 
   [HttpPost]

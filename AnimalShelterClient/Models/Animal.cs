@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace AnimalShelterClient.Models
 {
@@ -24,6 +25,7 @@ namespace AnimalShelterClient.Models
       return animalList;
     }
 
+    
     public static List<Animal> GetSearch(string category, string searchParam)
     {
       var apiCallTask = ApiHelper.GetSearch(category, searchParam);
