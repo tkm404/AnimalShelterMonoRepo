@@ -49,7 +49,7 @@ namespace AnimalShelterClient.Models
 
     public static void Delete(int id)
     {
-      ApiHelper.Delete(id)
+      ApiHelper.Delete(id);
     }
   }
 }
