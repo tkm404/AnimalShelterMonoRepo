@@ -42,6 +42,15 @@ This is a web application built with VS Code for the 11th Independent Code Revie
 6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 
 
+### Endpoints:
+{
+  GET hhtp://localhost:8492/api/animals/
+  GET hhtp://localhost:8492/api/animals/{id}
+  POST hhtp://localhost:8492/api/animals/
+  PUT hhtp://localhost:8492/api/animals/{id}
+  DELETE hhtp://localhost:8492/api/animals/{id}
+}
+
 ## Known Bugs:
 
 
