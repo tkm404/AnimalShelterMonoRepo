@@ -18,3 +18,11 @@
 <input type="text" name="searchParam">
 <input type="submit" value="Search" class="btn btn-primary"/>
 }
+
+
+<ol>
+  @foreach (Animal animal in Model)
+  {
+    <li><strong>@animal.Name</strong> the @animal.Species | <a href="/Animals/Details/@(animal.AnimalId)">View Details</a></li>
+  }
+</ol>
