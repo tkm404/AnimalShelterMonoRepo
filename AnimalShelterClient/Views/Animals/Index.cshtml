@@ -1,6 +1,7 @@
 @{
     ViewData["Title"] = "Animals";
 }
+@model PagedList.IPagedList<AnimalShelterClient.Models.Animal>
 
 <h1> All Shelter Animals: </h1>
 
@@ -13,6 +14,8 @@
     <li><strong>@animal.Name</strong> the @animal.Species | <a href="/Animals/Details/@(animal.AnimalId)">View Details</a></li>
   }
 </ol>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 
 

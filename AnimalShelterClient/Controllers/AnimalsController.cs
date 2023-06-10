@@ -7,11 +7,21 @@ namespace AnimalShelterClient.Controllers;
 
 public class AnimalsController : Controller
 {
-  public IActionResult Index()
+  // public IActionResult Index()
+  // {
+  //   List<Animal> animals = Animal.GetAnimals();
+  //   return View(animals);
+  // }
+
+  public IActionResult Index(int? page)
   {
+    page = 1;
     List<Animal> animals = Animal.GetAnimals();
-    return View(animals);
+    int pageSize = 3;
+    int pageNumber = (page ?? 1);
+    return View(animals.ToPagedList(pageNumber, pageSize));
   }
+
 
   public IActionResult Search()
   {
