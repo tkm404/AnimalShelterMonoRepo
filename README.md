@@ -15,6 +15,7 @@
 * Entity Framework Core
 * Pomelo Entity Framework Core
 * HTML Helpers
+* Swashbuckle API visualizer
 
 
 ## Description:
