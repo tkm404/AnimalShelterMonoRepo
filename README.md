@@ -15,8 +15,7 @@
 * Entity Framework Core
 * Pomelo Entity Framework Core
 * HTML Helpers
-* Custom Tag Helpers
-* ASP.NET Identity
+
 
 ## Description:
 This is a web API built with VS Code for the 12th Independent Code Review for Epicodus Coding program. It features a database popluated with famous test-subject animals. A user should be able to see the animals in the database as a JSON response by issuing a GET command, add an animal with POST, update an animal with PUT, and delete an animal with DELETE.
