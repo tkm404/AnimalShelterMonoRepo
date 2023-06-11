@@ -1,14 +1,40 @@
 using Microsoft.AspNetCore.Mvc;
 using AnimalShelterClient.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using PagedList;
 
 namespace AnimalShelterClient.Controllers;
 
 public class AnimalsController : Controller
 {
-  public IActionResult Index()
+  // public IActionResult Index()
+  // {
+  //   List<Animal> animals = Animal.GetAnimals();
+  //   return View(animals);
+  // }
+
+  public IActionResult Index(int? page)
+  {
+    page = 1;
+    List<Animal> animals = Animal.GetAnimals();
+    int pageSize = 3;
+    int pageNumber = (page ?? 1);
+    return View(animals.ToPagedList(pageNumber, pageSize));
+  }
+
+
+  public IActionResult Search()
   {
     List<Animal> animals = Animal.GetAnimals();
     return View(animals);
+  } 
+
+  [HttpPost]
+  public IActionResult Search(string category, string searchParam)
+  {
+    List<Animal> animals = Animal.GetSearch(category, searchParam);
+    return View(animals);
+
   }
 
   public IActionResult Details(int id)

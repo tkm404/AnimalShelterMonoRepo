@@ -14,6 +14,37 @@ namespace AnimalShelterClient.Models
       return response.Content;
     }
 
+    public static async Task<string> GetSearch(string category, string searchParam)
+    {
+      int animalAge;
+      bool isValid = int.TryParse(searchParam, out animalAge);
+      if (isValid)
+      {
+      RestClient client = new RestClient("http://localhost:8492");
+      RestRequest request = new RestRequest($"api/animals?{category}={animalAge}", Method.Get);
+      RestResponse response = await client.GetAsync(request);
+      return response.Content;      
+      }
+
+      if (searchParam == null)
+      {
+      RestClient client = new RestClient("http://localhost:8492");
+      RestRequest request = new RestRequest($"api/animals", Method.Get);
+      RestResponse response = await client.GetAsync(request);
+      return response.Content;
+      }
+
+      else
+      {
+      RestClient client = new RestClient("http://localhost:8492");
+      RestRequest request = new RestRequest($"api/animals?{category}={searchParam}", Method.Get);
+      RestResponse response = await client.GetAsync(request);
+      return response.Content;
+      }
+
+
+    }
+
     public static async Task<string> Get(int id)
     {
       RestClient client = new RestClient("http://localhost:8492");

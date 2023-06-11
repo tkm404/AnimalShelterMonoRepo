@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace AnimalShelterClient.Models
 {
@@ -22,6 +23,18 @@ namespace AnimalShelterClient.Models
       List<Animal> animalList = JsonConvert.DeserializeObject<List<Animal>>(jsonResponse.ToString());
 
       return animalList;
+    }
+
+    
+    public static List<Animal> GetSearch(string category, string searchParam)
+    {
+      var apiCallTask = ApiHelper.GetSearch(category, searchParam);
+      var result = apiCallTask.Result;
+
+      JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
+      List<Animal> searchAnimalList = JsonConvert.DeserializeObject<List<Animal>>(jsonResponse.ToString());
+
+      return searchAnimalList;
     }
 
     public static Animal GetDetails(int id)
