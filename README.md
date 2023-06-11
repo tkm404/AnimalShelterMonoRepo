@@ -1,9 +1,9 @@
 # Animal Shelter
 
 #### A web application that uses a home-made API. The app should have the following features:
-* (Filler for now)
-* (Secondary Objective)
-* (Tertiary Objective)
+* CRUD functionality for API commands
+* Exploration of Pagination
+* An MVC Front-End with Search capability (see Animal_Shelter_Client.Solution)
 
 #### By Thomas McDowell  
 
@@ -19,7 +19,7 @@
 * ASP.NET Identity
 
 ## Description:
-This is a web application built with VS Code for the 11th Independent Code Review for Epicodus Coding program. There is a demonstration of a Many-to-Many relationship between Treats and Flavors, and an authorization level between general users, customers, and administrators. Administrators have control over the Create, Delete, and Update functions for Flavors and Treats. Customers and non-roled users have Read functionality. An unauthorized user will be redirected to an Access Denied page if they try to Create, Delete or Update.
+This is a web API built with VS Code for the 12th Independent Code Review for Epicodus Coding program. It features a database popluated with famous test-subject animals. A user should be able to see the animals in the database as a JSON response by issuing a GET command, add an animal with POST, update an animal with PUT, and delete an animal with DELETE.
 
 ## Setup/Installation Req's:
 
@@ -79,6 +79,8 @@ This is a web application built with VS Code for the 11th Independent Code Revie
 ```
 
 ## Known Bugs:
+
+There is a second branch in this repository that explores Pagination. Unfortunately, I wasn't able to get everything to work on this end, as I discovered that many of the online tutorials and resources I found involved recreating this project in a different format than I'm used to, and by the point I made that discovery, I wasn't about to start from scratch. There should be some commit history on that branch, as I ran into issues with having to go back and making a "DAL," or "Data Access Layer", and both "Repository" and "IRepository" folders. These items would have effectively undone what I had just spent the first half of my day doing and involved making a View folder on the API side of my project... which I was using in my MVC API-consuming app. I ran out of time to reconcile the issues between the projects, but I did manage to get some Search functionality working on the MVC end!
 
 
 ## License:
