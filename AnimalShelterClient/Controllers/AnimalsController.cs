@@ -14,12 +14,14 @@ public class AnimalsController : Controller
   // }
 
   public IActionResult Index(int? page)
+  // public async Task<IActionResult>
   {
     page = 1;
     List<Animal> animals = Animal.GetAnimals();
     int pageSize = 3;
     int pageNumber = (page ?? 1);
     return View(animals.ToPagedList(pageNumber, pageSize));
+    // return View(await PaginatedList<Animal>.CreateAsync(animals.AsNoTracking(), pageNumber ?? 1, pageSize));
   }
 
 
