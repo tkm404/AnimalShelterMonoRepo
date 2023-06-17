@@ -1,0 +1,14 @@
+@{
+  ViewData["Title"] = $"Delete {Model.Name}";
+  }
+
+@model AnimalShelterClient.Models.Animal
+
+<h3> Are you sure you want to delete @Model.Name?</h3>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="btn btn-primary"/>
+}
+
+<p>@Html.ActionLink("Back to details", "Details", new {id = @Model.AnimalId})</p>
