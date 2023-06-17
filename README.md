@@ -30,6 +30,11 @@ This is a web API built with VS Code for the 12th Independent Code Review for Ep
 
 For the MVC, a user should be able to see the animals in the database by using the various buttons to return views. Views are populated by sending GET, POST, PUT, or DELETE (and SEARCH, but that's really just GET again) to the API and database to pull information.
 
+## Further Exploration:
+I used this project as a means to explore Pagination. I ran into some issues on the API side of things, as documented in the commit history of these repos: Original draft of Animal_Shelter_API.Solution [https://github.com/tkm404/Animal_Shelter_API.Solution/commits/Pagination] / Original draft of Animal_Shelter_Client.Solution [https://github.com/tkm404/Animal_Shelter_Client.Solution/tree/PaginationSortingSearching]. Please exucse some scrambling of commits here, it was my first time committing to two repos in tandem.
+
+Interestingly, though pagination didn't turn out as expected on the API side, it did work to return the correct number of entries per page on the Client side. 
+
 ## Setup/Installation Req's:
 
 ### Set Up and Run Project
@@ -78,6 +83,51 @@ For the MVC, a user should be able to see the animals in the database by using t
   "AllowedHosts": "*"
 }
 
+```
+
+## API Endpoints:
+```
+{
+  GET 
+  (production) https://localhost:7138/api/animals/
+  (development) http://localhost:8492/api/animals/
+    To return animals by species, breed, name, or age n or older:
+    (.../animals?species=(text) .../animals?breed=(text) .../animals?name=(text) .../animals?minimumAge=(number))
+    Combine queries with "&": .../animals?species=dog&name=laika
+
+  GET (by ID)
+  (production) https://localhost:7138/api/animals/{id}
+  (development) http://localhost:8492/api/animals/{id}
+    To return by ID, enter the number of ID you wish to find in place of {id}.
+
+  POST 
+  (production) https://localhost:7138/api/animals/
+  (development) http://localhost:8492/api/animals/
+    A body is requrired for POST requests. in JSON:
+
+    {
+      "name": "Laika",
+      "species": "Dog",
+      "breed": "Golden Retriever",
+      "age": 4
+    }
+
+  PUT 
+  (production) https://localhost:7138/api/animals/{id}
+  (development) http://localhost:8492/api/animals/{id}
+    Replace {id} with a number corresponding to an animal in the database
+    A body is required for PUT requests, and the Animal Id must be included. In JSON:
+
+    {
+      "animalId": 1,
+      "name": "Laika",
+      "species": "Dog",
+      "breed": "Golden Retriever",
+      "age": 4
+    }
+
+  DELETE http://localhost:8492/api/animals/{id}
+}
 ```
 
 
