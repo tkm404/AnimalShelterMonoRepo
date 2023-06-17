@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Animals";
+}
+@model PagedList.IPagedList<AnimalShelterClient.Models.Animal>
+
+<h1> All Shelter Animals: </h1>
+
+<p>@Html.ActionLink("Add an animal to the shelter?", "Create")</p>
+<p>@Html.ActionLink("Search for specific animals?", "Search")</p>
+
+<ol>
+  @foreach (Animal animal in Model)
+  {
+    <li><strong>@animal.Name</strong> the @animal.Species | <a href="/Animals/Details/@(animal.AnimalId)">View Details</a></li>
+  }
+</ol>
+
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+
+
+<p>@Html.ActionLink("Back to Home", "Index", "Home")</p>

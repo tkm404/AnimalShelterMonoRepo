@@ -1,9 +1,16 @@
 # Animal Shelter
 
+## Animal Shelter API
 #### A web application that uses a home-made API. The app should have the following features:
 * CRUD functionality for API commands
 * Exploration of Pagination
 * An MVC Front-End with Search capability (see Animal_Shelter_Client.Solution)
+
+## Animal Shelter Client
+#### A web application that consumes a home-made API. The app should have the following features:
+* CRUD functionality for animals model.
+* Exploration of Pagination
+* Search functionality
 
 #### By Thomas McDowell  
 
@@ -19,7 +26,9 @@
 
 
 ## Description:
-This is a web API built with VS Code for the 12th Independent Code Review for Epicodus Coding program. It features a database popluated with famous test-subject animals. A user should be able to see the animals in the database as a JSON response by issuing a GET command, add an animal with POST, update an animal with PUT, and delete an animal with DELETE.
+This is a web API built with VS Code for the 12th Independent Code Review for Epicodus Coding program. It features an additional web application that consumes and serves as the front end, and a database popluated with famous test-subject animals. A user should be able to see the animals in the database as a JSON response by issuing a GET command, add an animal with POST, update an animal with PUT, and delete an animal with DELETE.
+
+For the MVC, a user should be able to see the animals in the database by using the various buttons to return views. Views are populated by sending GET, POST, PUT, or DELETE (and SEARCH, but that's really just GET again) to the API and database to pull information.
 
 ## Setup/Installation Req's:
 
@@ -41,50 +50,41 @@ This is a web API built with VS Code for the 12th Independent Code Review for Ep
 
 6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 
-
-### Endpoints:
-
-```
+```json
 {
-  GET http://localhost:8492/api/animals/
-    To return animals by species, breed, name, or age n or older:
-    (.../animals?species=(text) .../animals?breed=(text) .../animals?name=(text) .../animals?minimumAge=(number))
-    Combine queries with "&": .../animals?species=dog&name=laika
-
-  GET http://localhost:8492/api/animals/{id}
-
-  POST hhtp://localhost:8492/api/animals/
-    A body is requrired for POST requests. in JSON:
-
-    {
-      "name": "Laika",
-      "species": "Dog",
-      "breed": "Golden Retriever"
-      "age": 4
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
     }
-
-  PUT http://localhost:8492/api/animals/{id}
-    A body is required for PUT requests, and the Animal Id must be included. In JSON:
-
-    {
-      "animalId": 1,
-      "name": "Laika",
-      "species": "Dog",
-      "breed": "Golden Retriever"
-      "age": 4
-    }
-
-  DELETE http://localhost:8492/api/animals/{id}
+  },
+  "AllowedHosts": "*"
 }
+
 ```
+
+7. Navigate to the Client project's production directory called "AnimalShelterClient" in VS Code or your Terminal. 
+8. Within the production directory "AnimalShelterClient", create a new file called `appsettings.json`.
+9. Within `appsettings.json`, put in the following code
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+
+```
+
 
 ## Known Bugs:
 
-There is a second branch in this repository that explores Pagination. Unfortunately, I wasn't able to get everything to work on this end, as I discovered that many of the online tutorials and resources I found involved recreating this project in a different format than I'm used to, and by the point I made that discovery, I wasn't about to start from scratch. There should be some commit history on that branch, as I ran into issues with having to go back and making a "DAL," or "Data Access Layer", and both "Repository" and "IRepository" folders. These items would have effectively undone what I had just spent the first half of my day doing and involved making a View folder on the API side of my project... which I was using in my MVC API-consuming app. I ran out of time to reconcile the issues between the projects, but I did manage to get some Search functionality working on the MVC end!
+I merged a branch used for further exploration of Pagination into my main branch. I got about half of it to work properly, but some features were still evading me by two days after submission. The good news is that the Animals Index view actually displays page 1-2 for my database of 4 animals (3 to a page). The bad news is that I haven't yet been able to get buttons to change the page to work. I did manage to make a Search feature from almost-scratch, as I got fed up with online tutorials, and repurposed the API's GET call (which already had sorting) to take a logic gate as an input. If the search bar was blank, return all animals. If the search bar had an integer and the "Minimum Age" category was selected, properly return the animals above the specified age. There is a caveat, in that the search terms do have to match up exactly with thier corresponding categories. It can't take partial entries... yet.
 
 
 ## License:
 MIT Copyright (C) 2023 Thomas McDowell
-
-## Database Structure
-![image of schema connections]
