@@ -1,6 +1,6 @@
-appsettings.json
-appsettings.*.json
 obj
 bin
-.lib
+appsettings.json
+appsettings.*.json
 .vscode
+lib
