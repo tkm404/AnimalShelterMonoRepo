@@ -10,18 +10,17 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.AnimalId)
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name, new { @Value = Model.Name})
-  <br>
-  @Html.LabelFor(model => model.Species)
-  @Html.TextBoxFor(model => model.Species, new { @Value = Model.Species})
-  <br>
-  @Html.LabelFor(model => model.Breed)
-  @Html.TextBoxFor(model => model.Breed, new { @Value = Model.Breed})
-  <br>
-  @Html.LabelFor(model => model.Age)
-  @Html.TextBoxFor(model => model.Age, new { @Value = Model.Age})
-  <br>
+  <p>@Html.LabelFor(model => model.Name):
+  @Html.TextBoxFor(model => model.Name, new { @Value = Model.Name}) </p>
+
+  <p>@Html.LabelFor(model => model.Species):
+  @Html.TextBoxFor(model => model.Species, new { @Value = Model.Species}) </p>
+
+  <p>@Html.LabelFor(model => model.Breed):
+  @Html.TextBoxFor(model => model.Breed, new { @Value = Model.Breed}) </p>
+
+  <p>@Html.LabelFor(model => model.Age):
+  @Html.TextBoxFor(model => model.Age, new { @Value = Model.Age}) </p>
   <br>
   <input type="submit" value="Save Changes" class="btn btn-primary"/>
 }
