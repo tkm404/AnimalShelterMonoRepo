@@ -33,7 +33,7 @@ For the MVC, a user should be able to see the animals in the database by using t
 ## Further Exploration:
 I used this project as a means to explore Pagination. I ran into some issues on the API side of things, as documented in the commit history of these repos: Original draft of Animal_Shelter_API.Solution [https://github.com/tkm404/Animal_Shelter_API.Solution/commits/Pagination] / Original draft of Animal_Shelter_Client.Solution [https://github.com/tkm404/Animal_Shelter_Client.Solution/tree/PaginationSortingSearching]. Please exucse some scrambling of commits here, it was my first time committing to two repos in tandem.
 
-Interestingly, though pagination didn't turn out as expected on the API side, it did work to return the correct number of entries per page on the Client side. 
+Interestingly, though pagination didn't turn out as expected on the API side, it did work to return the correct number of entries per page on the Client side, displaying 3 animals at a time. 
 
 ## Setup/Installation Req's:
 
@@ -53,20 +53,7 @@ Interestingly, though pagination didn't turn out as expected on the API side, it
 
 5. Set up the Database. In your terminal in the project directory (Animal_Shelter_Api.Solution/AnimalShelterApi), run ```dotnet ef database update```
 
-6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
-
-```json
-{
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
-  "AllowedHosts": "*"
-}
-
-```
+6. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted. Alternatively, run ```dotnet run``` to run the API host in the background while using the MVC app to view the client facing view (as described below).
 
 7. Navigate to the Client project's production directory called "AnimalShelterClient" in VS Code or your Terminal. 
 8. Within the production directory "AnimalShelterClient", create a new file called `appsettings.json`.
@@ -84,6 +71,7 @@ Interestingly, though pagination didn't turn out as expected on the API side, it
 }
 
 ```
+10. Run ```dotnet watch run``` to view the project in your web browser. Enter your computer password when prompted.
 
 ## API Endpoints:
 ```
